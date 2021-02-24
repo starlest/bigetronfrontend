@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  line-height: 1;
+  height: 100%;
+  width: 100%;
+  background: #101010;
+  color: white;
+}
+
+html, body {
+  height: 100%;
+}
+
+main {
+  min-height: calc(100vh - 193px);
+}
+
+p {
+  @apply mt-5;
+}

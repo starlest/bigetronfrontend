@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import "../styles/globals.scss";
+
+// core components
+import Header from "../components/header/header.js";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Header />
+      <Component {...pageProps} />
+    </>
+  );
+  
 }
 
 export default MyApp

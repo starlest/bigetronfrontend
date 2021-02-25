@@ -6,14 +6,14 @@ module.exports = {
       fontFamily: {
         sans: ["Source Sans Pro", "Helvetica", "sans-serif"],
       },
+      colors: {
+        primary: "#EC1F27",
+        secondary: "#7F7C84",
+        dark: "#101010",
+        section: "#F8F8F8",
+        white: "#ffffff",
+      },
     },
-  },
-  colors: {
-    primary: "#EC1F27",
-    secondary: "#7F7C84",
-    dark: "#101010",
-    section: "#F8F8F8",
-    white: "#ffffff",
   },
   variants: {
     extend: {},

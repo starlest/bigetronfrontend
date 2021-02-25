@@ -1,12 +1,13 @@
 import "../styles/globals.scss";
+import "tailwindcss/tailwind.css";
 
 // core components
-import Header from "../components/header/header.js";
+import Navbar from "../components/navbar/navbar.js";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Header />
+      <Navbar />
       <Component {...pageProps} />
     </>
   );

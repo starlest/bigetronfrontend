@@ -1,58 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import axios from "axios";
+
+import HeaderTab from "./header-tab";
 
 import styles from "./header-section.module.scss";
 
 import articleImage from "../../assets/img/article.png";
 
-const articles = [
-  {
-    title: "test",
-    image: articleImage,
-    slug: "test",
-  },
-  {
-    title: "test1",
-    image: articleImage,
-    slug: "test",
-  },
-  {
-    title: "test2",
-    image: articleImage,
-    slug: "test",
-  },
-];
-
-const HeaderTab = ({ isActive, title, image, link }) => {
-  return (
-    <div className={`${isActive ? `block` : `hidden`} h-full w-full`}>
-      <Image
-        width={800}
-        height={400}
-        layout="responsive"
-        src={image}
-        alt={title}
-      />
-      <div
-        className={`absolute bottom-0 left-0 ${styles.gradient}`}
-      ></div>
-      <Link href={link}>
-        <a className="text-lg w-full md:w-1/2 md:text-3xl lg:text-5xl font-bold uppercase text-white hover:text-primary">
-          {title}
-        </a>
-      </Link>
-    </div>
-  );
-};
-
-const HeaderSection = () => {
+const HeaderSection = ({ articles }) => {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     const next = (active + 1) % articles.length;
     const timer = setTimeout(() => setActive(next), 5000);
-    return () => clearTimeout(timer);
   }, [active, articles.length]);
 
   return (
@@ -62,7 +22,7 @@ const HeaderSection = () => {
           key={`article-${article.id}`}
           isActive={index === active}
           title={article.title}
-          image={article.image}
+          imageUrl={article.image.url}
           link={`/news/${article.slug}`}
         />
       ))}

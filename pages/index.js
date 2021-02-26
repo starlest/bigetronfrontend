@@ -1,8 +1,8 @@
-import Head from 'next/head'
+import Head from "next/head";
 import HeaderSection from "../sections/index/header-section";
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Home.module.css";
 
-export default function Home() {
+function Home({ articles }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -10,7 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HeaderSection />
+      <HeaderSection articles={articles} />
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -66,3 +66,13 @@ export default function Home() {
     </div>
   );
 }
+
+export async function getServerSideProps() {
+  const res = await fetch(
+    "https://shielded-atoll-06824.herokuapp.com/articles?_limit=4"
+  );
+  const articles = await res.json();
+  return { props: { articles } };
+}
+
+export default Home;

@@ -48,7 +48,10 @@ const DropdownMenu = ({ name, links }) => {
           >
             {links.map((link) => (
               <Link href={link.url} role="menuitem" key={link.name}>
-                <a className="block px-4 py-2 text-sm leading-5 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">
+                <a
+                  onClick={() => toggleExpansion(!isExpanded)}
+                  className="block px-4 py-2 text-sm leading-5 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                >
                   {link.name}
                 </a>
               </Link>

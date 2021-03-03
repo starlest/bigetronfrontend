@@ -9,15 +9,15 @@ import bigetronLogoRed from "../../assets/img/bigetron.png";
 const divisionsLinks = [
   {
     name: "PUBG Mobile",
-    url: "/divsions/pubgm",
+    url: "/divisions/pubgm",
   },
   {
     name: "Mobile Legends",
-    url: "/divsions/mlbb",
+    url: "/divisions/mlbb",
   },
   {
     name: "Free Fire",
-    url: "/divsions/ff",
+    url: "/divisions/ff",
   },
 ];
 

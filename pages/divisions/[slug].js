@@ -1,28 +1,11 @@
-import { useEffect, useState } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import ErrorPage from "next/error";
 
-const DivisionPage = () => {
-  const [teams, setTeams] = useState([]);
-  const [title, setTitle] = useState("");
-  const router = useRouter();
-  const slug = router.query.slug;
-  const url = process.env.STRAPI_API_URL + "/games?slug=" + slug;
+const DivisionPage = ({ data }) => {
+  if (data.length === 0) return <ErrorPage statusCode={404} />;
 
-  useEffect(() => {
-    if (slug === undefined) return;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.length === 0) {
-          router.push(`/404`);
-          return;
-        }
-        const division = data[0];
-        setTitle(division.name);
-        setTeams(division.teams);
-      });
-  }, [slug]);
+  const title = data[0].name;
+  const teams = data[0].teams;
 
   return (
     <>
@@ -37,4 +20,11 @@ const DivisionPage = () => {
   );
 };
 
+DivisionPage.getInitialProps = async (ctx) => {
+  const slug = ctx.query.slug;
+  const url = process.env.STRAPI_API_URL + "/games?slug=" + slug;
+  const res = await fetch(url);
+  const json = await res.json();
+  return { data: json };
+};
 export default DivisionPage;

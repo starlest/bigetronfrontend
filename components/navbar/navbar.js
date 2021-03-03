@@ -6,18 +6,18 @@ import HamburgerButton from "./hamburger-button";
 
 import bigetronLogoRed from "../../assets/img/bigetron.png";
 
-const teamsLinks = [
+const divisionsLinks = [
   {
     name: "PUBG Mobile",
-    url: "/teams/pubgm",
+    url: "/divsions/pubgm",
   },
   {
     name: "Mobile Legends",
-    url: "/teams/mlbb",
+    url: "/divsions/mlbb",
   },
   {
     name: "Free Fire",
-    url: "/teams/ff",
+    url: "/divsions/ff",
   },
 ];
 
@@ -54,7 +54,9 @@ const Navbar = () => {
           <Link href="/" activeClassName="text-primary">
             <a className="block m-5 lg:m-0">HOME</a>
           </Link>
-          <DropdownMenu name="Teams" links={teamsLinks} />
+
+          <DropdownMenu name="Divisions" links={divisionsLinks} />
+
           <Link href="/#about" activeClassName="text-primary">
             <a className="block m-5 lg:m-0">ABOUT</a>
           </Link>

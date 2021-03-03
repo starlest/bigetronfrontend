@@ -24,9 +24,8 @@ function Home({ articles }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(
-    "https://shielded-atoll-06824.herokuapp.com/articles?_limit=4"
-  );
+  const url = process.env.STRAPI_API_URL + "/articles?_limit=4";
+  const res = await fetch(url);
   const articles = await res.json();
   return { props: { articles } };
 }

@@ -7,8 +7,8 @@ const HeaderTab = ({ isActive, title, imageUrl, link }) => {
   return (
     <div className={`${isActive ? `block` : `hidden`} h-full w-full`}>
       <Image
-        width={800}
-        height={400}
+        width={1920}
+        height={1080}
         layout="responsive"
         src={imageUrl}
         alt={title}

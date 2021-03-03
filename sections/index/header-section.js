@@ -5,14 +5,13 @@ import HeaderTab from "./header-tab";
 
 import styles from "./header-section.module.scss";
 
-import articleImage from "../../assets/img/article.png";
-
 const HeaderSection = ({ articles }) => {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     const next = (active + 1) % articles.length;
     const timer = setTimeout(() => setActive(next), 5000);
+    return () => clearTimeout(timer);
   }, [active, articles.length]);
 
   return (
